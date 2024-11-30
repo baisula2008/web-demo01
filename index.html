@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OVERSEAS EDUCATION CONSULTANCY - 专业留学咨询服务</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="OVERSEAS EDUCATION CONSULTANCY提供专业的留学咨询服务，包括本科、研究生、博士申请指导，语言培训等全方位服务。">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 修改所有白色背景为深灰色 */
+        body {
+            background-color: #333333;
+        }
+
+        .main {
+            background-color: #333333;
+        }
+
+        .image-gallery,
+        .flags-section,
+        .world-map,
+        .menu-cards,
+        .content-section,
+        .company-info,
+        .technician-card {
+            background-color: #333333;
+        }
+
+        /* 修改技师卡片的背景色和文字颜色 */
+        .technician-card {
+            background: #333333;
+            color: #ffffff;
+        }
+
+        .technician-info h3 {
+            color: #ffffff;
+        }
+
+        .technician-info .experience {
+            color: #ffffff;
+        }
+
+        /* 修改其他可能有白色背景的元素 */
+        .section-title {
+            color: #ffffff;
+        }
+
+        .profile-text {
+            color: #ffffff;
+        }
+
+        .hero-banner {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            margin-top: 0;
+            padding-top: 70px;
+            width: 95%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            width: 300%; /* 三张图片的总宽度 */
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            position: relative;
+            width: 33.333%; /* 每张图片占 1/3 宽度 */
+            height: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            z-index: 2;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* 轮播按钮样式 */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            z-index: 3;
+        }
+
+        .slider-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 20px;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .next {
+            right: 20px;
+            border-radius: 0 3px 3px 0;
+        }
+
+        /* 轮播指示器样式 */
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            background-color: #f8f8f8;
+        }
+
+        /* 响应式调整 */
+        @media screen and (max-width: 768px) {
+            .hero-content {
+                padding-left: 5%;
+                padding-right: 5%;
+                text-align: center;
+            }
+
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* 修改主要内容区域的背景颜色为深灰色 */
+        .main {
+            background-color: #333333;  /* 深灰色背景 */
+        }
+
+        /* 确保图片区域和其他内容区域也使用相同的背景色 */
+        .image-gallery,
+        .flags-section,
+        .world-map,
+        .menu-cards,
+        .content-section,
+        .company-info {
+            background-color: #333333;  /* 保持一致的深灰色背景 */
+        }
+
+        /* 他样式保持不变 */
+
+        /* 添加社交媒体图标样式 */
+        .social-icons {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: #4169E1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 20px; /* 图标大小 */
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+            background: #2750d6;
+        }
+
+        /* 添加到现有的 style 标签中 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 为国旗卡片添加悬停效果 */
+        .flag-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flag-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* 为技师卡片添加悬停效果 */
+        .technician-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .technician-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        /* 为菜单卡片添加悬停效果 */
+        .menu-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        /* 为社交图��添加动画效果 */
+        .social-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* 为按钮添加动态效果 */
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease-out, height 0.6s ease-out;
+        }
+
+        .cta-button:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .menu-item ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .menu-item ul li {
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .menu-item ul li:before {
+            content: '•';
+            position: absolute;
+            left: -15px;
+            color: white;
+        }
+
+        /* 侧边栏样式 */
+        .side-menu {
+            position: fixed;
+            left: -280px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            background-color: rgba(65, 105, 225, 0.95);
+            border-radius: 0 10px 10px 0;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: left 0.3s ease;
+        }
+
+        /* 当鼠标悬停时显示完整侧边栏 */
+        .side-menu:hover {
+            left: 0;
+        }
+
+        /* 修改菜单项样式，确保标题在缩进状态下可见 */
+        .menu-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: rgba(65, 105, 225, 0.95);
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        .menu-item h3 {
+            margin: 0;
+            padding: 10px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            text-align: right;
+            padding-right: 10px;
+            font-size: 14px;
+        }
+
+        /* 隐藏图标和内容，直到展开 */
+        .item-icon, .item-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* 展开时显示内容 */
+        .side-menu:hover .item-icon,
+        .side-menu:hover .item-content {
+            display: block;
+            opacity: 1;
+        }
+
+        /* 在 style 标签中添加 */
+        .language-switch {
+            margin-left: 20px;
+        }
+
+        #language-selector {
+            padding: 5px 10px;
+            border: 2px solid #4169E1;
+            border-radius: 20px;
+            background: transparent;
+            color: #4169E1;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #language-selector:hover {
+            background: #4169E1;
+            color: white;
+        }
+
+        #language-selector option {
+            background: white;
+            color: #4169E1;
+        }
+
+        /* 修改菜单项悬停效果 */
+        .menu-item:hover {
+            background-color: rgba(39, 80, 214, 0.95);
+        }
+
+        /* 修改技师卡片的动画样式 */
+        .technician-card {
+            opacity: 0;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 第一行技师（从左到右同时进入） */
+        .technician-grid > .technician-card:nth-child(-n+3) {
+            transform: translateX(-100px);
+            transition-delay: 0.2s; /* 第一行所有卡片使用相同的延迟 */
+        }
+
+        /* 第二行技师（从右到左同时进入） */
+        .technician-grid > .technician-card:nth-child(n+4) {
+            transform: translateX(100px);
+            transition-delay: 0.2s; /* 与第一行使用相同的延迟，实现同时进入 */
+        }
+
+        /* 当可见时的状态 */
+        .technician-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* 添加阴影效果增强3D感 */
+        .technician-card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .technician-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 移除技师卡片的动画效果，保持静态显示 */
+        .technician-card {
+            opacity: 1; /* 保持完全显示 */
+            transform: none; /* 移除变换效果 */
+            transition: none; /* 移除��渡效果 */
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 移除悬停效果 */
+        .technician-card:hover {
+            transform: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 移除所有动画相关的样式 */
+        .technician-card {
+            will-change: auto;
+            animation: none;
+            transform-style: flat;
+            backface-visibility: visible;
+        }
+
+        /* 移除延迟和过渡效果 */
+        .technician-grid > .technician-card:nth-child(-n+3),
+        .technician-grid > .technician-card:nth-child(n+4) {
+            transform: none;
+            transition-delay: 0s;
+        }
+    </style>
+</head>
+<body>
+    <div class="side-menu">
+        <!-- 留学咨询服务 -->
+        <div class="menu-item" style="background-color: #4169E1;">
+            <div class="item-icon">
+                <img src="https://via.placeholder.com/64?text=Service" alt="留学咨询服务">
+            </div>
+            <h3>留学咨询服务</h3>
+            <div class="item-content">
+                <p>专业的留学咨询服务，包括：</p>
+                <ul>
+                    <li>留学规划指导</li>
+                    <li>院校专业选择</li>
+                    <li>申请材准备</li>
+                    <li>签证申请服务</li>
+                </ul>
+                <a href="./contact.html" class="item-button">立即预约</a>
+            </div>
+        </div>
+
+        <!-- 费用咨询 -->
+        <div class="menu-item" style="background-color: #4169E1;">
+            <div class="item-icon">
+                <img src="https://via.placeholder.com/64?text=Price" alt="费用咨询">
+            </div>
+            <h3>费用咨询</h3>
+            <div class="item-content">
+                <p>留学费用说明：</p>
+                <ul>
+                    <li>申请服务费用</li>
+                    <li>学费及生活费估算</li>
+                    <li>奖学金申请指导</li>
+                    <li>资金规划建议</li>
+                </ul>
+                <a href="#" class="item-button" onclick="openChatbot()">在线咨询</a>
+            </div>
+        </div>
+
+        <!-- 服务时间 -->
+        <div class="menu-item" style="background-color: #4169E1;">
+            <div class="item-icon">
+                <img src="https://via.placeholder.com/64?text=Time" alt="�����务����">
+            </div>
+            <h3>服务时间</h3>
+            <div class="item-content">
+                <p>我们的工作时间：</p>
+                <ul>
+                    <li>周一至周五：9:00-18:00</li>
+                    <li>周六：10:00-16:00</li>
+                    <li>节假日接受预约</li>
+                    <li>可安排线上咨询</li>
+                </ul>
+                <a href="./contact.html" class="item-button">了解更多</a>
+            </div>
+        </div>
+
+        <!-- 联系方式 -->
+        <div class="menu-item" style="background-color: #4169E1;">
+            <div class="item-icon">
+                <img src="https://via.placeholder.com/64?text=Contact" alt="联系方式">
+            </div>
+            <h3>联系方式</h3>
+            <div class="item-content">
+                <p>联系我们：</p>
+                <ul>
+                    <li>电话：1234567890</li>
+                    <li>邮箱：info@example.com</li>
+                    <li>地址：[您的具体地址]</li>
+                    <li>微信公众号：[公众号名称]</li>
+                </ul>
+                <a href="./contact.html" class="item-button">查看地图</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <nav class="nav">
+            <!-- 修改导航栏中的 logo-section 部分 -->
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="./logo/logo.PNG" alt="Logo" class="logo-img">
+                </div>
+                <a href="forum.html" class="forum-btn" data-translate="forum-btn">交流讨论</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="nav-home">首页</a></li>
+                <li><a href="about.html" data-translate="nav-about">关于我们</a></li>
+                <li><a href="user-platform.html" data-translate="nav-user">用户中心</a></li>
+                <li><a href="contact.html" data-translate="nav-contact">联系我们</a></li>
+                <li class="language-switch">
+                    <select id="language-selector" onchange="changeLanguage(this.value)">
+                        <option value="zh">中文</option>
+                        <option value="en">English</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-banner">
+        <div class="slider-container">
+            <!-- 轮播图片 -->
+            <div class="slider">
+                <div class="slide">
+                    <img src="./首页背景/BG.PNG" alt="背景图1">
+                    <div class="hero-content">
+                        <h1 class="main-title" data-translate="slide1-title">OVERSEAS EDUCATION CONSULTANCY</h1>
+                        <p class="subtitle" data-translate="slide1-subtitle">Knowledge Is Power</p>
+                        <a href="./contact.html" class="cta-button" data-translate="slide1-btn">预约</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./首页背景/BG2.PNG" alt="背景图2">
+                    <div class="hero-content">
+                        <h1 class="main-title" data-translate="slide2-title">专业留学咨询服务</h1>
+                        <p class="subtitle" data-translate="slide2-subtitle">Your Future Starts Here</p>
+                        <a href="./contact.html" class="cta-button" data-translate="slide2-btn">咨询</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./首页背景/BG3.PNG" alt="背景图3">
+                    <div class="hero-content">
+                        <h1 class="main-title" data-translate="slide3-title">全球名校直通车</h1>
+                        <p class="subtitle" data-translate="slide3-subtitle">Dream Big, Achieve More</p>
+                        <a href="./contact.html" class="cta-button" data-translate="slide3-btn">了解更多</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 轮播控制按钮 -->
+            <button class="slider-btn prev">❮</button>
+            <button class="slider-btn next">❯</button>
+
+            <!-- 轮播指示器 -->
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <main class="main">
+        <!-- 删除或注释掉这部分 -->
+        <!--
+        <section class="hero">
+            <h1 data-translate="hero-title">活出精彩不要平庸</h1>
+            <p data-translate="hero-subtitle">Live brilliantly, never be mediocre</p>
+        </section>
+        -->
+
+        <section class="image-gallery">
+            <div class="gallery-container">
+                <!-- 第一行 5张图片 -->
+                <div class="img-wrapper">
+                    <img src="./美甲图片/111.PNG" alt="留学生活照片" class="gallery-img">
+                </div>
+                <div class="img-wrapper">
+                    <img src="./美甲图片/2222.PNG" alt="美甲图片" class="gallery-img">
+                </div>
+                <div class="img-wrapper">
+                    <img src="./美甲图片/33.PNG" alt="美甲图片" class="gallery-img">
+                </div>
+                <div class="img-wrapper">
+                    <img src="./美甲图片/444.PNG" alt="美甲图片" class="gallery-img">
+                </div>
+                <div class="img-wrapper">
+                    <img src="./美甲图片/55.PNG" alt="美甲图片" class="gallery-img">
+                </div>
+                
+                <!-- 第二行 5张图片 -->
+                <div class="img-wrapper">
+                    <img src="./美甲图片/77.PNG" alt="美甲�����片" class="gallery-img">
+                </div>
+                <div class="img-wrapper">
+                    <img src="./美甲图片/88.PNG" alt="美甲图片" class="gallery-img">
+                </div>
+                <div class="img-wrapper">
+                    <img src="./美甲图片/888.PNG" alt="美甲图片" class="gallery-img">
+                </div>
+                <div class="img-wrapper">
+                    <img src="./美甲图片/66.PNG" alt="美甲图片" class="gallery-img">
+                </div>
+                <div class="img-wrapper">
+                    <img src="./美甲图片/99.PNG" alt="美甲图片" class="gallery-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- 国旗展示区域 -->
+        <section class="flags-section">
+            <div class="flags-container">
+                <!-- 第一行国家 -->
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/us.png" alt="美国国旗">
+                    <h3>USA</h3>
+                    <p data-translate="country-usa">世界顶尖名校云集</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/gb.png" alt="英国国旗">
+                    <h3>UK</h3>
+                    <p data-translate="country-uk">百年名校传统底蕴</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/ca.png" alt="加拿大国旗">
+                    <h3>Canada</h3>
+                    <p data-translate="country-canada">优质教育移民优势</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/au.png" alt="澳大利亚���旗">
+                    <h3>Australia</h3>
+                    <p data-translate="country-australia">高质量教育体系</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/nz.png" alt="新西兰国旗">
+                    <h3>New Zealand</h3>
+                    <p data-translate="country-newzealand">优美环境理想选择</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/sg.png" alt="新加坡国旗">
+                    <h3>Singapore</h3>
+                    <p data-translate="country-singapore">亚洲教育领先地位</p>
+                </div>
+
+                <!-- 第二行国家 -->
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/de.png" alt="德国国旗">
+                    <h3>Germany</h3>
+                    <p data-translate="country-germany">工程技术教育强国</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/fr.png" alt="法国国旗">
+                    <h3>France</h3>
+                    <p data-translate="country-france">艺术设计教育圣地</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/ie.png" alt="爱尔兰国旗">
+                    <h3>Ireland</h3>
+                    <p data-translate="country-ireland">欧盟教育新机遇</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/nl.png" alt="荷兰国旗">
+                    <h3>Netherlands</h3>
+                    <p data-translate="country-netherlands">创新教育模式典范</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/cz.png" alt="捷克国旗">
+                    <h3>Czech Republic</h3>
+                    <p data-translate="country-czech">东欧教育新星崛起</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/pl.png" alt="波兰国�����">
+                    <h3>Poland</h3>
+                    <p data-translate="country-poland">性价比留学优选</p>
+                </div>
+
+                <!-- 第三行国家 -->
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/es.png" alt="西班牙国旗">
+                    <h3>Spain</h3>
+                    <p data-translate="country-spain">文化艺术教育胜地</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/it.png" alt="意大利国旗">
+                    <h3>Italy</h3>
+                    <p data-translate="country-italy">艺术设计教育之都</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/se.png" alt="瑞典国旗">
+                    <h3>Sweden</h3>
+                    <p data-translate="country-sweden">创新教育先锋国家</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/dk.png" alt="丹麦国旗">
+                    <h3>Denmark</h3>
+                    <p data-translate="country-denmark">北欧教育典范国家</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/at.png" alt="奥地利国旗">
+                    <h3>Austria</h3>
+                    <p data-translate="country-austria">音乐艺术教育圣地</p>
+                </div>
+                <div class="flag-item">
+                    <img src="https://flagcdn.com/w320/ch.png" alt="瑞士国旗">
+                    <h3>Switzerland</h3>
+                    <p data-translate="country-switzerland">顶级酒店管理教育</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 在 image-gallery section 和 menu-cards section 之间的世界地图部分 -->
+        <section class="world-map">
+            <div class="map-container">
+                <img src="./地图/000.PNG" alt="世界地图" class="map-image">
+            </div>
+        </section>
+
+        <!-- 直接使用新的四个方框 -->
+        <section class="menu-cards">
+            <!-- 科申请 -->
+            <div class="menu-card" style="background-color: #006D6D;">
+                <div class="card-icon">
+                    <span class="vip-text">VIP</span>
+                </div>
+                <h2 data-translate="undergrad-title">本科申请</h2>
+                <div class="card-content">
+                    <p data-translate="undergrad-subtitle">专业本科申请服务：</p>
+                    <ul>
+                        <li data-translate="undergrad-service-1">院校专业选择指导</li>
+                        <li data-translate="undergrad-service-2">申请材料准备支持</li>
+                        <li data-translate="undergrad-service-3">文书写作专业指导</li>
+                        <li data-translate="undergrad-service-4">签证申请全程服务</li>
+                    </ul>
+                    <a href="#" class="card-button" onclick="openChatbot()" data-translate="undergrad-btn">在��咨询</a>
+                </div>
+            </div>
+
+            <!-- 研究生申请 -->
+            <div class="menu-card" style="background-color: #B25D3A;">
+                <div class="card-icon">
+                    <span class="vip-text">VIP</span>
+                </div>
+                <h2 data-translate="master-title">研究生申请</h2>
+                <div class="card-content">
+                    <p data-translate="master-subtitle">专业��究生申请服务</p>
+                    <ul>
+                        <li data-translate="master-service-1">名校申请策略规划</li>
+                        <li data-translate="master-service-2">科研背景提升指导</li>
+                        <li data-translate="master-service-3">推荐信专业修改</li>
+                        <li data-translate="master-service-4">面试辅导培训</li>
+                    </ul>
+                    <a href="./contact.html" class="card-button" data-translate="master-btn">立即预约</a>
+                </div>
+            </div>
+
+            <!-- 博士申请 -->
+            <div class="menu-card" style="background-color: #614C75;">
+                <div class="card-icon">
+                    <span class="vip-text">VIP</span>
+                </div>
+                <h2 data-translate="phd-title">博士申请</h2>
+                <div class="card-content">
+                    <p data-translate="phd-subtitle">专业博士申请服务：</p>
+                    <ul>
+                        <li data-translate="phd-service-1">导师资源对接</li>
+                        <li data-translate="phd-service-2">研究计划书指导</li>
+                        <li data-translate="phd-service-3">学术背景提升</li>
+                        <li data-translate="phd-service-4">全程申请支持</li>
+                    </ul>
+                    <a href="./contact.html" class="card-button" data-translate="phd-btn">尊享预约</a>
+                </div>
+            </div>
+
+            <!-- 语言培训 -->
+            <div class="menu-card" style="background-color: #C1536B;">
+                <div class="card-icon">
+                    <span class="vip-text">VIP</span>
+                </div>
+                <h2 data-translate="language-title">语言培训</h2>
+                <div class="card-content">
+                    <p data-translate="language-subtitle">专业语言培训服务：</p>
+                    <ul>
+                        <li data-translate="language-service-1">IELTS/TOEFL培训</li>
+                        <li data-translate="language-service-2">GRE/GMAT辅导</li>
+                        <li data-translate="language-service-3">个性化学习方案</li>
+                        <li data-translate="language-service-4">模拟考试训练</li>
+                    </ul>
+                    <a href="./contact.html" class="card-button" data-translate="language-btn">优惠预约</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 修改更多精彩内容部分 -->
+        <section class="content-section">
+            <div class="content-container">
+                <h2 class="section-title" data-translate="more-content-title">更多精彩内容</h2>
+                <div class="technician-grid">
+                    <!-- 例1 -->
+                    <div class="technician-card">
+                        <div class="technician-image">
+                            <img src="./技师图片/Lisa.PNG" alt="留学顾问">
+                        </div>
+                        <div class="technician-info">
+                            <h3>浩然 鹿</h3>
+                            <p class="title" data-translate="advisor-lisa-title">哈佛大学 金融学硕士</p>
+                            <div class="experience">
+                                <p data-translate="advisor-lisa-edu">· 本科：北京大学 经济学</p>
+                                <p data-translate="advisor-lisa-exp1">· GPA: 3.9/4.0, GMAT: 760</p>
+                                <p data-translate="advisor-lisa-exp2">· 实习高盛投资银行部</p>
+                                <p data-translate="advisor-lisa-exp3">· 现就职于摩根士丹利</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 案例2 -->
+                    <div class="technician-card">
+                        <div class="technician-image">
+                            <img src="./技师图片/Jack.PNG" alt="留学顾问">
+                        </div>
+                        <div class="technician-info">
+                            <h3>子睿白</h3>
+                            <p class="title" data-translate="advisor-jack-title">斯坦福大学 计算机科学士</p>
+                            <div class="experience">
+                                <p data-translate="advisor-jack-edu">· 本科：清华大学 计算机系</p>
+                                <p data-translate="advisor-jack-exp1">· GPA: 3.8/4.0, GRE: 335</p>
+                                <p data-translate="advisor-jack-exp2">· 实习：谷歌总部研发部门</p>
+                                <p data-translate="advisor-jack-exp3">· 现就职于微软AI团队</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 案例3 -->
+                    <div class="technician-card">
+                        <div class="technician-image">
+                            <img src="./技师图片/Sarah.PNG" alt="留学顾问">
+                        </div>
+                        <div class="technician-info">
+                            <h3>大项 羽</h3>
+                            <p class="title" data-translate="advisor-sarah-title">剑桥大学 教育学硕士</p>
+                            <div class="experience">
+                                <p data-translate="advisor-sarah-edu">· 本科：复旦大学 教育学</p>
+                                <p data-translate="advisor-sarah-exp1">· IELTS: 8.0, 教育类论文发表</p>
+                                <p data-translate="advisor-sarah-exp2">· 实习：国际教育咨询机构</p>
+                                <p data-translate="advisor-sarah-exp3">· 现国际学校对外任</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 案例4 -->
+                    <div class="technician-card">
+                        <div class="technician-image">
+                            <img src="./技师图片/Amy.PNG" alt="留学顾问">
+                        </div>
+                        <div class="technician-info">
+                            <h3>松之 刘</h3>
+                            <p class="title" data-translate="advisor-amy-title">伦敦政经 市场营销硕士</p>
+                            <div class="experience">
+                                <p data-translate="advisor-amy-edu">· 本科：上海交大 市场营销</p>
+                                <p data-translate="advisor-amy-exp1">· GMAT: 740, 多个奖学金</p>
+                                <p data-translate="advisor-amy-exp2">· 实习：联合利华市场部</p>
+                                <p data-translate="advisor-amy-exp3">· 现就职于欧莱雅集团</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 案例5 -->
+                    <div class="technician-card">
+                        <div class="technician-image">
+                            <img src="./技师图片/Luna.jpg" alt="留学顾问">
+                        </div>
+                        <div class="technician-info">
+                            <h3>Luna Yang</h3>
+                            <p class="title" data-translate="advisor-luna-title">宾夕法尼亚大学 建筑学硕士</p>
+                            <div class="experience">
+                                <p data-translate="advisor-luna-edu">· 本科：同济大学 建筑学</p>
+                                <p data-translate="advisor-luna-exp1">· GPA: 3.85/4.0, 作品集获奖</p>
+                                <p data-translate="advisor-luna-exp2">· 实习：知名建筑设计事务所</p>
+                                <p data-translate="advisor-luna-exp3">· 现就职于国际���筑工作室</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 案例6 -->
+                    <div class="technician-card">
+                        <div class="technician-image">
+                            <img src="./技��图片/Sophie.PNG" alt="留学顾问">
+                        </div>
+                        <div class="technician-info">
+                            <h3>Sophie Wu</h3>
+                            <p class="title" data-translate="advisor-sophie-title">麻省理工 机械工程硕士</p>
+                            <div class="experience">
+                                <p data-translate="advisor-sophie-edu">· 本科：浙江大学 机械工程</p>
+                                <p data-translate="advisor-sophie-exp1">· GRE: 330, 多项发专利</p>
+                                <p data-translate="advisor-sophie-exp2">· 实习：特斯拉研发中心</p>
+                                <p data-translate="advisor-sophie-exp3">· 现就职于波士顿动力</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 修改公司简介和联系方式部分的布局 -->
+        <section class="company-info">
+            <div class="content-container">
+                <!-- 上部分公司介 -->
+                <div class="company-profile">
+                    <h2 class="section-title" data-translate="company-title">公司简介</h2>
+                    <div class="profile-content">
+                        <div class="company-image">
+                            <img src="./个体公司/个体公司.PNG" alt="公司环境" class="company-img">
+                        </div>
+                        <div class="profile-text">
+                            <p data-translate="company-intro-1">OVERSEAS EDUCATION CONSULTANCY成立于2020年，是一家专注于为学生提供高质量留学咨询服务的专业机构。我们拥有一支经验丰富的留学顾问团队，致力于为每位学生制定个性化的留学规划方案。</p>
+                            
+                            <p data-translate="company-intro-2">我们的服务理念是："每个学生都是独特的人才"。我们不仅注重申请结果的达成，更注重因材施教，帮助学生找到最适合的发展道路。我们提供全方位的留学服务，包括院校选择、专业规划、文书指导、签证申请等。</p>
+                            
+                            <p class="freelancer-info" data-translate="company-recruit">教育顾问招募：欢迎优秀的教育工作者和留学顾问加入我们的平台共同打造专业的留学咨询生态圈。我们为顾问提供完善的培训体系和广阔的发展空间，一起帮助更多学子实现留学梦想。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="chatbot-container">
+        <div class="chatbot-toggle">
+            <span class="chatbot-toggle-icon">
+                <svg width="28" height="28" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 机器人头部 -->
+                    <rect x="24" y="36" width="80" height="70" rx="16" fill="#4169E1"/>
+                    <!-- 机器人天线 -->
+                    <circle cx="64" cy="24" r="8" fill="#4169E1"/>
+                    <rect x="60" y="24" width="8" height="12" fill="#4169E1"/>
+                    <!-- 机器人眼睛 -->
+                    <circle cx="48" cy="60" r="8" fill="white"/>
+                    <circle cx="80" cy="60" r="8" fill="white"/>
+                    <!-- 机器人嘴巴 -->
+                    <path d="M48 80 H80 Q64 95 48 80" stroke="white" stroke-width="3" fill="none"/>
+                </svg>
+            </span>
+        </div>
+        <div class="chatbot-box">
+            <div class="chatbot-header">
+                <h3>海外留学咨询助手</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="chatbot-messages">
+                <div class="chat-message bot">
+                    <p data-translate="chatbot-welcome">您好！欢迎来到海外留学服务与咨询工作。</p>
+                    <p data-translate="chatbot-intro">我是您的专属留学顾问，可以为您提供：</p>
+                    <ul>
+                        <li data-translate="chatbot-service-1">🎓 留学申请全程指导</li>
+                        <li data-translate="chatbot-service-2">🏫 院校专业选择建议</li>
+                        <li data-translate="chatbot-service-3">📝 文书写作指导</li>
+                        <li data-translate="chatbot-service-4">✈️ 签证申请咨询</li>
+                        <li data-translate="chatbot-service-5">💰 奖学金申请咨询</li>
+                    </ul>
+                    <p data-translate="chatbot-question">请问有什么我可以帮您？</p>
+                    <div class="chatbot-options">
+                        <button data-translate="chatbot-option-1">费用咨询</button>
+                        <button data-translate="chatbot-option-2">服务时间</button>
+                        <button data-translate="chatbot-option-3">申请流程</button>
+                        <button data-translate="chatbot-option-4">联系方式</button>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="请输入您的问..." id="chatbot-input">
+                <button class="send-btn">发送</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p data-translate="footer-text">&copy; 2024 OVERSEAS EDUCATION CONSULTANCY. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+    // 添加更详细的错误处理
+    function handleImageError(img) {
+        console.error('图片加载失败:', img.src);
+        console.error('完整路径:', new URL(img.src, window.location.href).href);
+        img.style.border = '2px solid red'; // 添加红色框标识败的图片
+        img.style.padding = '10px';
+        img.src = 'https://via.placeholder.com/150?text=Image+Not+Found'; // 使用线占位图
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const images = document.getElementsByTagName('img');
+        for(let img of images) {
+            // 添加加成功的日志
+            img.onload = function() {
+                console.log('图片加载成功:', this.src);
+            };
+            // 添加载失败的处理
+            img.onerror = function() {
+                handleImageError(this);
+            };
+        }
+    });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            
+            let currentSlide = 0;
+            const slideCount = slides.length;
+
+            // 自动轮播
+            let slideInterval = setInterval(nextSlide, 5000);
+
+            // 更新轮播位置
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentSlide * 33.333}%)`;
+                
+                // 更新指示器
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[currentSlide].classList.add('active');
+            }
+
+            // 下一张
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            }
+
+            // 上一张
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlider();
+            }
+
+            // 点击钮切换
+            prevBtn.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                prevSlide();
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                nextSlide();
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+
+            // 点击指示器切换
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    currentSlide = index;
+                    updateSlider();
+                    slideInterval = setInterval(nextSlide, 5000);
+                });
+            });
+        });
+    </script>
+    <div class="social-icons">
+        <a href="#" class="social-icon" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-icon" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-icon" title="Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-icon" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="social-icon" title="WeChat">
+            <i class="fab fa-weixin"></i>
+        </a>
+    </div>
+    <script>
+    // 修改滚动动画处理函数
+    function handleScrollAnimation() {
+        const cards = document.querySelectorAll('.technician-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // 添加可见类，触发3D翻页动画
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, entry.target.dataset.delay || 0);
+                } else {
+                    // 当元素离开视图时，移除可见类以便再次触发动画
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px'
+        });
+        
+        cards.forEach((card, index) => {
+            // 设置延迟时间
+            card.dataset.delay = index * 800; // 每个卡片间隔0.8秒
+            observer.observe(card);
+        });
+    }
+
+    // 页面加载时初始化动画
+    document.addEventListener('DOMContentLoaded', () => {
+        handleScrollAnimation();
+    });
+    </script>
+    <script>
+    // 语言配置
+    const translations = {
+        zh: {
+            // 导航栏
+            'nav-home': '首页',
+            'nav-about': '关于我们',
+            'nav-user': '用户中心',
+            'nav-contact': '联系我们',
+            'forum-btn': '交流讨论',
+            
+            // 轮播图
+            'slide1-title': 'OVERSEAS EDUCATION CONSULTANCY',
+            'slide1-subtitle': 'Knowledge Is Power',
+            'slide1-btn': '预约',
+            'slide2-title': '专业留学咨服务',
+            'slide2-subtitle': 'Your Future Starts Here',
+            'slide2-btn': '咨询',
+            'slide3-title': '全球名校直通车',
+            'slide3-subtitle': 'Dream Big, Achieve More',
+            'slide3-btn': '了解更多',
+
+            // 国旗部分
+            'country-usa': '世界顶尖名校云集',
+            'country-uk': '百年名校传统底蕴',
+            'country-canada': '优质教育移民优势',
+            'country-australia': '高质量教育体系',
+            'country-newzealand': '优美环境理想选择',
+            'country-singapore': '亚洲教育领先地位',
+            'country-germany': '工程技术教育强国',
+            'country-france': '艺术设计教育圣地',
+            'country-ireland': '欧盟教育新机遇',
+            'country-netherlands': '创新教育模式典范',
+            'country-czech': '东欧教育新星崛起',
+            'country-poland': '性价比留学优选',
+            'country-spain': '文化艺术教育胜地',
+            'country-italy': '艺术设计教育之都',
+            'country-sweden': '创新教育先锋国家',
+            'country-denmark': '北欧教育典范国家',
+            'country-austria': '音乐艺术教育圣地',
+            'country-switzerland': '顶级酒店管理教育',
+
+            // 顾问团队
+            'advisor-title': '更多精彩内容',
+            'advisor-education': '学历',
+            'advisor-experience': '经历',
+            'advisor-current': '��任职位',
+
+            // 公司简���
+            'company-title': '公司简介',
+            'company-intro-1': 'OVERSEAS EDUCATION CONSULTANCY成立于2020年，是一家专注于为学生提供高质量留学咨询服务的专业机构。我们拥有一支经验丰富的留学顾问团队，致力于为每位学生制定个性化的留学规划方案。',
+            'company-intro-2': '我们的服务理念是："每个学生都是独特的人才"。我们不仅注重申请结果的达成，更注重因材施教，帮助学生找到最适合的发展道路。我们提供全方位的留学服务，包括院校选择、专业规划、文书指导、签证申请等。',
+            'company-recruit': '教育顾问招募：欢迎优秀的教育工作者和留学顾问加入我们的平台共同打造专业的留学咨询生态圈。我们为顾问提供完善的培训体系和广阔的发展空间，一起帮助更多学子实现留学梦想。',
+
+            // 添加务卡片翻译
+            'undergrad-title': '本科���请',
+            'undergrad-subtitle': '专业本科申请服务：',
+            'undergrad-service-1': '院校专业选择指导',
+            'undergrad-service-2': '申请材料准备支持',
+            'undergrad-service-3': '文书写作专业指导',
+            'undergrad-service-4': '签证申请全程服务',
+            'undergrad-btn': '在线咨询',
+
+            'master-title': '研究��申请',
+            'master-subtitle': '专业研究生申请服务',
+            'master-service-1': '名校申请策略规划',
+            'master-service-2': '科研背景提升指导',
+            'master-service-3': '推荐信专业修改',
+            'master-service-4': '面试辅导培训',
+            'master-btn': '立即预约',
+
+            'phd-title': '博士申请',
+            'phd-subtitle': '专业博士申请服务：',
+            'phd-service-1': '导师资源对接',
+            'phd-service-2': '研究计划书指导',
+            'phd-service-3': '学术背景提升',
+            'phd-service-4': '全程申请支持',
+            'phd-btn': '尊享预约',
+
+            'language-title': '语言培训',
+            'language-subtitle': '专业语言培训服务：',
+            'language-service-1': 'IELTS/TOEFL培训',
+            'language-service-2': 'GRE/GMAT辅导',
+            'language-service-3': '个性化学习方案',
+            'language-service-4': '模拟考试训练',
+            'language-btn': '优惠预约',
+
+            // 顾问信息翻译
+            'advisor-lisa-title': '哈佛大学 金融学硕士',
+            'advisor-lisa-edu': '本科：北京大学 经济学',
+            'advisor-lisa-exp1': 'GPA: 3.9/4.0, GMAT: 760',
+            'advisor-lisa-exp2': '实习高盛投资银行部',
+            'advisor-lisa-exp3': '现就职于摩根士丹利',
+
+            // Jack Chen 的翻译
+            'advisor-jack-title': '斯坦福大学 计算机科学士',
+            'advisor-jack-edu': '· 本科：清华大学 计算机系',
+            'advisor-jack-exp1': '· GPA: 3.8/4.0, GRE: 335',
+            'advisor-jack-exp2': '· 实习���谷歌总部研发部门',
+            'advisor-jack-exp3': '· 现就职于微软AI团队',
+
+            // Sarah Wang 的翻译
+            'advisor-sarah-title': '剑桥大学 教育学硕士',
+            'advisor-sarah-edu': '· 本科：复旦大学 教育学',
+            'advisor-sarah-exp1': '· IELTS: 8.0, 教育类论文发表',
+            'advisor-sarah-exp2': '· 实习：国际教育咨询机构',
+            'advisor-sarah-exp3': '· 现国际学校对外任',
+
+            // Amy Liu 的翻译
+            'advisor-amy-title': '伦敦政经 市场营销硕士',
+            'advisor-amy-edu': '· 本科：上海交大 市场营销',
+            'advisor-amy-exp1': '· GMAT: 740, 多个奖学金',
+            'advisor-amy-exp2': '· 实习：联合利华市场部',
+            'advisor-amy-exp3': '· 现就职于欧莱雅集团',
+
+            // Luna Yang 的翻译
+            'advisor-luna-title': '宾夕法尼亚大学 建筑学硕士',
+            'advisor-luna-edu': '· 本科：同济大学 建筑学',
+            'advisor-luna-exp1': '· GPA: 3.85/4.0, 作品集获奖',
+            'advisor-luna-exp2': '· 实习：知名建筑设计事务所',
+            'advisor-luna-exp3': '· 现就职于国际建筑工作室',
+
+            // Sophie Wu 的翻译
+            'advisor-sophie-title': '麻省理工 机械工程硕士',
+            'advisor-sophie-edu': '· 本科：浙江大学 机械工程',
+            'advisor-sophie-exp1': '· GRE: 330, 多项发专利',
+            'advisor-sophie-exp2': '· 实习：特斯拉研发中心',
+            'advisor-sophie-exp3': '· 现就职于波士顿动力',
+
+            // 聊天机器人翻译
+            'chatbot-welcome': '您好！欢迎来到海外留学服务与咨询工作。',
+            'chatbot-intro': '我是您的专属留学顾问，可以为您提供：',
+            'chatbot-service-1': '🎓 留学申请全程指导',
+            'chatbot-service-2': '🏫 院���专业选择建议',
+            'chatbot-service-3': '📝 文书写作指导',
+            'chatbot-service-4': '✈️ 签证申请咨询',
+            'chatbot-service-5': '💰 奖学金申请咨询',
+            'chatbot-question': '请问有什么我可以帮您？',
+            'chatbot-option-1': '费用咨询',
+            'chatbot-option-2': '服务时间',
+            'chatbot-option-3': '申请流程',
+            'chatbot-option-4': '联系方式',
+
+            // 更多精彩内容翻译
+            'more-content-title': '更多精彩内容'
+        },
+        en: {
+            // Navigation
+            'nav-home': 'Home',
+            'nav-about': 'About Us',
+            'nav-user': 'User Center',
+            'nav-contact': 'Contact',
+            'forum-btn': 'Forum',
+            
+            // Slider
+            'slide1-title': 'OVERSEAS EDUCATION CONSULTANCY',
+            'slide1-subtitle': 'Knowledge Is Power',
+            'slide1-btn': 'Book Now',
+            'slide2-title': 'Professional Study Abroad Consulting',
+            'slide2-subtitle': 'Your Future Starts Here',
+            'slide2-btn': 'Consult',
+            'slide3-title': 'Global Elite University Gateway',
+            'slide3-subtitle': 'Dream Big, Achieve More',
+            'slide3-btn': 'Learn More',
+
+            // Countries
+            'country-usa': 'World Top Universities',
+            'country-uk': 'Century-old Academic Heritage',
+            'country-canada': 'Quality Education & Immigration',
+            'country-australia': 'High-Quality Education System',
+            'country-newzealand': 'Ideal Study Environment',
+            'country-singapore': 'Leading Education in Asia',
+            'country-germany': 'Engineering & Technology Leader',
+            'country-france': 'Art & Design Education Hub',
+            'country-ireland': 'EU Education Opportunity',
+            'country-netherlands': 'Innovative Education Model',
+            'country-czech': 'Rising Star in Eastern Europe',
+            'country-poland': 'Cost-Effective Education',
+            'country-spain': 'Cultural & Arts Education',
+            'country-italy': 'Art & Design Capital',
+            'country-sweden': 'Pioneer in Innovation',
+            'country-denmark': 'Nordic Education Model',
+            'country-austria': 'Music & Arts Education',
+            'country-switzerland': 'Top Hospitality Education',
+
+            // Advisors
+            'advisor-title': 'More Excellence',
+            'advisor-education': 'Education',
+            'advisor-experience': 'Experience',
+            'advisor-current': 'Current Position',
+
+            // Company Profile
+            'company-title': 'Company Profile',
+            'company-intro-1': 'Founded in 2020, OVERSEAS EDUCATION CONSULTANCY is a professional institution dedicated to providing high-quality overseas education consulting services. We have an experienced team of education consultants committed to creating personalized study abroad plans for each student.',
+            'company-intro-2': 'Our service philosophy is: "Every student is unique." We focus not only on achieving application results but also on helping students find the most suitable development path. We provide comprehensive study abroad services, including school selection, major planning, application guidance, and visa application.',
+            'company-recruit': 'Education Consultant Recruitment: We welcome excellent educators and study abroad consultants to join our platform to build a professional consulting ecosystem. We provide comprehensive training systems and broad development opportunities to help more students achieve their dreams of studying abroad.',
+
+            // 添加服务卡片英文翻译
+            'undergrad-title': 'Undergraduate Application',
+            'undergrad-subtitle': 'Professional Application Services:',
+            'undergrad-service-1': 'University & Major Selection',
+            'undergrad-service-2': 'Application Materials Support',
+            'undergrad-service-3': 'Professional Essay Guidance',
+            'undergrad-service-4': 'Full Visa Application Service',
+            'undergrad-btn': 'Online Consultation',
+
+            'master-title': 'Graduate Application',
+            'master-subtitle': 'Professional Graduate Services',
+            'master-service-1': 'Elite University Strategy',
+            'master-service-2': 'Research Background Enhancement',
+            'master-service-3': 'Recommendation Letter Review',
+            'master-service-4': 'Interview Preparation',
+            'master-btn': 'Book Now',
+
+            'phd-title': 'PhD Application',
+            'phd-subtitle': 'Professional PhD Services:',
+            'phd-service-1': 'Supervisor Matching',
+            'phd-service-2': 'Research Proposal Guidance',
+            'phd-service-3': 'Academic Profile Enhancement',
+            'phd-service-4': 'Full Application Support',
+            'phd-btn': 'Premium Booking',
+
+            'language-title': 'Language Training',
+            'language-subtitle': 'Professional Language Services:',
+            'language-service-1': 'IELTS/TOEFL Training',
+            'language-service-2': 'GRE/GMAT Preparation',
+            'language-service-3': 'Personalized Study Plan',
+            'language-service-4': 'Mock Exam Training',
+            'language-btn': 'Special Offer',
+
+            // 顾问信息英文翻译
+            'advisor-lisa-title': 'Harvard University, Master in Finance',
+            'advisor-lisa-edu': 'BS: Peking University, Economics',
+            'advisor-lisa-exp1': 'GPA: 3.9/4.0, GMAT: 760',
+            'advisor-lisa-exp2': 'Internship at Goldman Sachs IB',
+            'advisor-lisa-exp3': 'Currently at Morgan Stanley',
+
+            // Jack Chen 的英文翻译
+            'advisor-jack-title': 'Stanford University, BS in Computer Science',
+            'advisor-jack-edu': '· BS: Tsinghua University, Computer Science',
+            'advisor-jack-exp1': '· GPA: 3.8/4.0, GRE: 335',
+            'advisor-jack-exp2': '· Internship: Google HQ R&D',
+            'advisor-jack-exp3': '· Currently at Microsoft AI Team',
+
+            // Sarah Wang 的英文翻译
+            'advisor-sarah-title': 'University of Cambridge, MEd in Education',
+            'advisor-sarah-edu': '· BS: Fudan University, Education',
+            'advisor-sarah-exp1': '· IELTS: 8.0, Published Education Papers',
+            'advisor-sarah-exp2': '· Internship: International Education Consulting',
+            'advisor-sarah-exp3': '· Currently at International School',
+
+            // Amy Liu 的英文翻译
+            'advisor-amy-title': 'LSE, Master in Marketing',
+            'advisor-amy-edu': '· BS: Shanghai Jiao Tong University, Marketing',
+            'advisor-amy-exp1': '· GMAT: 740, Multiple Scholarships',
+            'advisor-amy-exp2': '· Internship: Unilever Marketing',
+            'advisor-amy-exp3': '· Currently at L\'Oréal Group',
+
+            // Luna Yang 的英文翻译
+            'advisor-luna-title': 'UPenn, Master in Architecture',
+            'advisor-luna-edu': '· BS: Tongji University, Architecture',
+            'advisor-luna-exp1': '· GPA: 3.85/4.0, Award-winning Portfolio',
+            'advisor-luna-exp2': '· Internship: Renowned Architecture Firm',
+            'advisor-luna-exp3': '· Currently at International Architecture Studio',
+
+            // Sophie Wu 的英文翻译
+            'advisor-sophie-title': 'MIT, Master in Mechanical Engineering',
+            'advisor-sophie-edu': '· BS: Zhejiang University, Mechanical Engineering',
+            'advisor-sophie-exp1': '· GRE: 330, Multiple Patents',
+            'advisor-sophie-exp2': '· Internship: Tesla R&D Center',
+            'advisor-sophie-exp3': '· Currently at Boston Dynamics',
+
+            // 聊天机器人英文翻译
+            'chatbot-welcome': 'Hello! Welcome to Overseas Education Service and Consulting.',
+            'chatbot-intro': 'I am your personal education consultant, offering:',
+            'chatbot-service-1': '🎓 Full Application Guidance',
+            'chatbot-service-2': '🏫 University & Major Selection',
+            'chatbot-service-3': '📝 Essay Writing Support',
+            'chatbot-service-4': '✈️ Visa Application Advice',
+            'chatbot-service-5': '💰 Scholarship Application',
+            'chatbot-question': 'How may I help you?',
+            'chatbot-option-1': 'Fee Inquiry',
+            'chatbot-option-2': 'Service Hours',
+            'chatbot-option-3': 'Application Process',
+            'chatbot-option-4': 'Contact Information',
+
+            // 更多精彩内容翻译
+            'more-content-title': 'More Exciting Content'
+        }
+    };
+
+    function changeLanguage(lang) {
+        // 存储语言选择
+        localStorage.setItem('selectedLanguage', lang);
+        
+        // 更新所有带有 data-translate 属性的元素
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang][key]) {
+                if (element.tagName.toLowerCase() === 'input') {
+                    element.value = translations[lang][key];
+                } else {
+                    element.textContent = translations[lang][key];
+                }
+            }
+        });
+
+        // 更新页面标题
+        document.title = lang === 'zh' ? 
+            'OVERSEAS EDUCATION CONSULTANCY - 专业留学咨询服务' : 
+            'OVERSEAS EDUCATION CONSULTANCY - Professional Study Abroad Consulting';
+    }
+
+    // 页面加载时初始化语言
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'zh';
+        document.getElementById('language-selector').value = savedLanguage;
+        changeLanguage(savedLanguage);
+    });
+    </script>
+</body>
+</html> 

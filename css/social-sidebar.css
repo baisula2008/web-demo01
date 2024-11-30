@@ -1,0 +1,24 @@
+.social-sidebar {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    background-color: #4169E1;
+    border-radius: 10px 0 0 10px;
+    padding: 10px;
+}
+
+.social-icon {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+} 

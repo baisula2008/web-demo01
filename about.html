@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 专业留学咨询服务</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .about-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #333333, #4A4A4A);
+            padding-top: 80px;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 顶部横幅 */
+        .about-banner {
+            position: relative;
+            height: 400px;
+            background: url('./首页背景/BG.PNG') center/cover;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .banner-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .banner-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        .banner-content p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            animation: fadeIn 1s ease 0.5s both;
+        }
+
+        /* 数据统计部分 */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #fff, #4169E1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* 服务特点部分 */
+        .features-section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+        }
+
+        .features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+        }
+
+        .feature-title {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .feature-desc {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* 团队介绍部分 */
+        .team-section {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #fff;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #4169E1, transparent);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .member-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .team-member:hover .member-img {
+            border-color: #4169E1;
+            transform: scale(1.05);
+        }
+
+        .member-name {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .member-role {
+            color: #4169E1;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .member-desc {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* 添加成就展示部分 */
+        .achievements-section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .achievement-item {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .achievement-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #4169E1;
+            margin-bottom: 15px;
+        }
+
+        .achievement-label {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 1200px) {
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner-content h1 {
+                font-size: 2.5em;
+            }
+            
+            .features-grid,
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-section {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            .stat-item {
+                padding: 20px;
+            }
+        }
+
+        .language-switch {
+            margin-left: 20px;
+        }
+
+        #language-selector {
+            padding: 5px 10px;
+            border: 2px solid #4169E1;
+            border-radius: 20px;
+            background: transparent;
+            color: #4169E1;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #language-selector:hover {
+            background: #4169E1;
+            color: white;
+        }
+
+        #language-selector option {
+            background: white;
+            color: #4169E1;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="./logo/logo.PNG" alt="Logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="nav-home">首页</a></li>
+                <li><a href="about.html" data-translate="nav-about">关于我们</a></li>
+                <li><a href="user-platform.html" data-translate="nav-user">用户中心</a></li>
+                <li><a href="contact.html" data-translate="nav-contact">联系我们</a></li>
+                <li class="language-switch">
+                    <select id="language-selector" onchange="changeLanguage(this.value)">
+                        <option value="zh">中文</option>
+                        <option value="en">English</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="about-page">
+        <div class="about-container">
+            <!-- 顶部横幅 -->
+            <div class="about-banner">
+                <div class="banner-overlay">
+                    <div class="banner-content">
+                        <h1 data-translate="about-title">关于我们</h1>
+                        <p data-translate="about-subtitle">专业的留学咨询团队</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 数据统计 -->
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number">10000+</div>
+                    <div class="stat-label" data-translate="stats-cases">成功案例</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label" data-translate="stats-satisfaction">客户满意度</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label" data-translate="stats-universities">合作院校</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label" data-translate="stats-countries">服务国家</div>
+                </div>
+            </div>
+
+            <!-- 服务特点 -->
+            <div class="features-section">
+                <div class="features-container">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3 class="feature-title" data-translate="feature-title-1">精准定位</h3>
+                            <p class="feature-desc" data-translate="feature-desc-1">根据学生个人背景、兴趣特长和职业规划，为每位学生量身定制最适合的留学方案。</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌟</div>
+                            <h3 class="feature-title" data-translate="feature-title-2">专业指导</h3>
+                            <p class="feature-desc" data-translate="feature-desc-2">资深顾问团队提供专业的申请指导，包括院校选择、文书修改、面试培训等全方位服务。</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">👤</div>
+                            <h3 class="feature-title" data-translate="feature-title-3">一对一服务</h3>
+                            <p class="feature-desc" data-translate="feature-desc-3">每位学生都配备专属顾问，提供个性化咨询服务，确保申请过程顺利进行。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 团队介绍 -->
+            <div class="team-section">
+                <h2 class="section-title" data-translate="team-section-title">我们的团队</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="./技师图片/Lisa.PNG" alt="团队成员" class="member-img">
+                        <h3 class="member-name">Lisa Zhang</h3>
+                        <p class="member-role" data-translate="member-role-1">留学顾问总监</p>
+                        <p class="member-desc" data-translate="member-desc-1">哈佛大学教育学硕士，10年留学咨询经验，专注高端院校申请指导。</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="./技师图片/Jack.PNG" alt="团队成员" class="member-img">
+                        <h3 class="member-name">Jack Chen</h3>
+                        <p class="member-role" data-translate="member-role-2">文书总监</p>
+                        <p class="member-desc" data-translate="member-desc-2">斯坦福大学英语文学博士，精通文书写作，曾助数百名学生成功申请名校。</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="./技师图片/Sarah.PNG" alt="团队成员" class="member-img">
+                        <h3 class="member-name">Sarah Wang</h3>
+                        <p class="member-role" data-translate="member-role-3">签证顾问</p>
+                        <p class="member-desc" data-translate="member-desc-3">剑桥大学法学硕士，专注签证申请指导，签证通过率高达99%。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 成就展示 -->
+            <div class="achievements-section">
+                <div class="section-title" data-translate="achievements-title">我们的成就</div>
+                <div class="achievements-grid">
+                    <div class="achievement-item">
+                        <div class="achievement-number">98%</div>
+                        <div class="achievement-label" data-translate="achievement-1">申请成功率</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-number">10K+</div>
+                        <div class="achievement-label" data-translate="achievement-2">成功案例</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-number">50+</div>
+                        <div class="achievement-label" data-translate="achievement-3">合作院校</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-number">15+</div>
+                        <div class="achievement-label" data-translate="achievement-4">服务国家</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p data-translate="footer-text">© 2024 留学服务平台. All rights reserved.</p>
+    </footer>
+
+    <script>
+    const translations = {
+        zh: {
+            // 导航栏
+            'nav-home': '首页',
+            'nav-about': '关于我们',
+            'nav-user': '用户中心',
+            'nav-contact': '联系我们',
+            'forum-btn': '交流讨论',
+            
+            // 页面标题
+            'about-title': '关于我们',
+            'about-subtitle': '专业的留学咨询团队',
+            
+            // 公司介绍
+            'company-intro': '公司介绍',
+            'company-desc': '我们是一家专业的留学咨询机构，致力于为学生提供最优质的留学服务...',
+            
+            // 团队介绍
+            'team-title': '我们的团队',
+            'team-desc': '我们的团队由经验丰富的留学顾问组成...',
+            
+            // 服务特色
+            'service-title': '服务特色',
+            'service-1': '个性化咨询',
+            'service-2': '专业指导',
+            'service-3': '全程跟进',
+            'service-4': '资源共享',
+            
+            // 联系信息
+            'contact-title': '联系我们',
+            'address': '地址：',
+            'phone': '电话：',
+            'email': '邮箱：',
+            
+            // 数据统计部分
+            'stats-cases': '成功案例',
+            'stats-satisfaction': '客户满意度',
+            'stats-universities': '合作院校',
+            'stats-countries': '服务国家',
+            
+            // 服务特点部分
+            'feature-title-1': '精准定位',
+            'feature-desc-1': '根据学生个人背景、兴趣特长和职业规划，为每位学生量身定制最适合的留学方案。',
+            'feature-title-2': '专业指导',
+            'feature-desc-2': '资深顾问团队提供专业的申请指导，包括院校选择、文书修改、面试培训等全方位服务。',
+            'feature-title-3': '一对一服务',
+            'feature-desc-3': '每位学生都配备专属顾问，提供个性化咨询服务，确保申请过程顺利进行。',
+            
+            // 团队介绍部分
+            'team-section-title': '我们的团队',
+            'member-role-1': '留学顾问总监',
+            'member-desc-1': '哈佛大学教育学硕士，10年留学咨询经验，专注高端院校申请指导。',
+            'member-role-2': '文书总监',
+            'member-desc-2': '斯坦福大学英语文学博士，精通文书写作，曾助数百名学生成功申请名校。',
+            'member-role-3': '签证顾问',
+            'member-desc-3': '剑桥大学法学硕士，专注签证申请指导，签证通过率高达99%。',
+            
+            // 成就展示部分
+            'achievements-title': '我们的成就',
+            'achievement-1': '申请成功率',
+            'achievement-2': '成功案例',
+            'achievement-3': '合作院校',
+            'achievement-4': '服务国家',
+            
+            // 页脚
+            'footer-text': '© 2024 留学服务平台. All rights reserved.'
+        },
+        en: {
+            // Navigation
+            'nav-home': 'Home',
+            'nav-about': 'About Us',
+            'nav-user': 'User Center',
+            'nav-contact': 'Contact',
+            'forum-btn': 'Forum',
+            
+            // Page Titles
+            'about-title': 'About Us',
+            'about-subtitle': 'Professional Study Abroad Consulting Team',
+            
+            // Company Introduction
+            'company-intro': 'Company Introduction',
+            'company-desc': 'We are a professional overseas education consulting agency dedicated to providing the best study abroad services...',
+            
+            // Team Introduction
+            'team-title': 'Our Team',
+            'team-desc': 'Our team consists of experienced education consultants...',
+            
+            // Service Features
+            'service-title': 'Our Services',
+            'service-1': 'Personalized Consulting',
+            'service-2': 'Professional Guidance',
+            'service-3': 'Full Process Support',
+            'service-4': 'Resource Sharing',
+            
+            // Contact Information
+            'contact-title': 'Contact Us',
+            'address': 'Address:',
+            'phone': 'Phone:',
+            'email': 'Email:',
+            
+            // 数据统计部分
+            'stats-cases': 'Success Cases',
+            'stats-satisfaction': 'Client Satisfaction',
+            'stats-universities': 'Partner Universities',
+            'stats-countries': 'Service Countries',
+            
+            // 服务特点部分
+            'feature-title-1': 'Precise Positioning',
+            'feature-desc-1': 'Customize the most suitable study abroad plan for each student based on their background, interests, and career planning.',
+            'feature-title-2': 'Professional Guidance',
+            'feature-desc-2': 'Our experienced consultant team provides professional application guidance, including school selection, essay revision, and interview training.',
+            'feature-title-3': 'One-on-One Service',
+            'feature-desc-3': 'Each student is assigned a dedicated consultant, providing personalized consulting services to ensure a smooth application process.',
+            
+            // 团队介绍部分
+            'team-section-title': 'Our Team',
+            'member-role-1': 'Education Consulting Director',
+            'member-desc-1': 'Harvard MEd, 10 years of consulting experience, focused on elite university applications.',
+            'member-role-2': 'Essay Writing Director',
+            'member-desc-2': 'Stanford PhD in English Literature, expert in essay writing, helped hundreds of students succeed in top university applications.',
+            'member-role-3': 'Visa Consultant',
+            'member-desc-3': 'Cambridge LLM, specialized in visa applications, 99% visa approval rate.',
+            
+            // 成就展示部分
+            'achievements-title': 'Our Achievements',
+            'achievement-1': 'Application Success Rate',
+            'achievement-2': 'Success Cases',
+            'achievement-3': 'Partner Universities',
+            'achievement-4': 'Service Countries',
+            
+            // 页脚
+            'footer-text': '© 2024 Study Abroad Platform. All rights reserved.'
+        }
+    };
+
+    function changeLanguage(lang) {
+        // 存储语言选择
+        localStorage.setItem('selectedLanguage', lang);
+        
+        // 更新所有带有 data-translate 属性的元素
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang][key]) {
+                if (element.tagName.toLowerCase() === 'input') {
+                    element.value = translations[lang][key];
+                } else {
+                    element.textContent = translations[lang][key];
+                }
+            }
+        });
+
+        // 更新页面标题
+        document.title = lang === 'zh' ? 
+            'OVERSEAS EDUCATION CONSULTANCY - 关于我们' : 
+            'OVERSEAS EDUCATION CONSULTANCY - About Us';
+    }
+
+    // 页面加载时初始化语言
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'zh';
+        document.getElementById('language-selector').value = savedLanguage;
+        changeLanguage(savedLanguage);
+    });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户平台</title>
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <!-- 添加导航栏 -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-section">
+                <a href="index.html" class="logo">
+                    <img src="图片1/111.PNG" alt="Logo" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="nav-home">首页</a></li>
+                <li><a href="about.html" data-translate="nav-about">关于我们</a></li>
+                <li><a href="user-platform.html" data-translate="nav-user">用户中心</a></li>
+                <li><a href="contact.html" data-translate="nav-contact">联系我们</a></li>
+                <li class="language-switch">
+                    <select id="language-selector" onchange="changeLanguage(this.value)">
+                        <option value="zh">中文</option>
+                        <option value="en">English</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 保持原有的登录/注册表单内容 -->
+    <div class="login-container">
+        <div class="login-image">
+            <div class="logo-container">
+                <img src="图片1/111.PNG" alt="Logo" class="logo">
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <h2 class="form-title" data-translate="register-title">用户注册</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="username" data-translate="register-username">用户名</label>
+                    <input type="text" id="username" name="username" data-translate-placeholder="register-username-placeholder" placeholder="请输入用户名" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" data-translate="register-email">邮箱</label>
+                    <input type="email" id="email" name="email" data-translate-placeholder="register-email-placeholder" placeholder="请输入邮箱" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" data-translate="register-password">密码</label>
+                    <input type="password" id="password" name="password" data-translate-placeholder="register-password-placeholder" placeholder="请输入密码" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword" data-translate="register-confirm-password">确认密码</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" data-translate-placeholder="register-confirm-password-placeholder" placeholder="请再次输入密码" required>
+                </div>
+                
+                <div class="button-group">
+                    <button type="submit" class="submit-btn" data-translate="register-submit">注册</button>
+                    <a href="login.html" class="register-btn" data-translate="register-login-link">已有账号？去登录</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            const currentLang = localStorage.getItem('selectedLanguage') || 'zh';
+            
+            submitBtn.textContent = translations[currentLang]['register-loading'];
+            submitBtn.disabled = true;
+
+            try {
+                // 验证密码是否匹配
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    throw new Error(translations[currentLang]['password-mismatch']);
+                }
+
+                const formData = {
+                    username: document.getElementById('username').value,
+                    email: document.getElementById('email').value,
+                    password: password
+                };
+
+                const response = await fetch('http://localhost:3001/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert(translations[currentLang]['register-success']);
+                    window.location.href = 'login.html';
+                } else {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || translations[currentLang]['register-error']);
+                }
+            } catch (error) {
+                alert(error.message || translations[currentLang]['register-error']);
+                console.error('Error:', error);
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+
+    <!-- 添加翻译脚本 -->
+    <script>
+    const translations = {
+        zh: {
+            // 导航栏
+            'nav-home': '首页',
+            'nav-about': '关于我们',
+            'nav-user': '用户中心',
+            'nav-contact': '联系我们',
+            
+            // 用户中心页面内容
+            'platform-title': '用户中心',
+            'platform-welcome': '欢迎来到用户中心',
+            
+            // 用户信息部分
+            'user-info': '个人信息',
+            'user-name': '姓名',
+            'user-email': '邮箱',
+            'user-phone': '电话',
+            'user-edit': '编辑资料',
+            
+            // 申请进度部分
+            'application-progress': '申请进度',
+            'application-status': '当前状态',
+            'application-next': '下一步',
+            'application-history': '申请历史',
+            
+            // 文件管理
+            'document-management': '文件管理',
+            'document-upload': '上传文件',
+            'document-list': '文件列表',
+            'document-shared': '共享文件',
+            
+            // 消息中心
+            'message-center': '消息中心',
+            'message-unread': '未读消息',
+            'message-all': '全部消息',
+            'message-send': '发送消息',
+            
+            // 预约咨询
+            'consultation': '预约咨询',
+            'consultation-new': '新预约',
+            'consultation-history': '预约历史',
+            'consultation-upcoming': '即将到来的预约',
+            
+            // 按钮文本
+            'btn-save': '保存',
+            'btn-cancel': '取消',
+            'btn-submit': '提交',
+            'btn-upload': '上传',
+            'btn-download': '下载',
+            'btn-delete': '删除',
+            
+            // 页脚
+            'footer-text': '© 2024 留学服务平台. All rights reserved.',
+            
+            // 注册页面翻译
+            'register-title': '用户注册',
+            'register-username': '用户名',
+            'register-username-placeholder': '请输入用户名',
+            'register-email': '邮箱',
+            'register-email-placeholder': '请输入邮箱',
+            'register-password': '密码',
+            'register-password-placeholder': '请输入密码',
+            'register-confirm-password': '确认密码',
+            'register-confirm-password-placeholder': '请再次输入密码',
+            'register-submit': '注册',
+            'register-login-link': '已有账号？去登录',
+            
+            // 注册相关提示信息
+            'register-loading': '注册中...',
+            'register-success': '注册成功！',
+            'register-error': '注册失败，请稍后重试',
+            'password-mismatch': '两次输入的密码不一致'
+        },
+        en: {
+            // Navigation
+            'nav-home': 'Home',
+            'nav-about': 'About Us',
+            'nav-user': 'User Center',
+            'nav-contact': 'Contact',
+            
+            // User Platform Content
+            'platform-title': 'User Center',
+            'platform-welcome': 'Welcome to User Center',
+            
+            // User Information
+            'user-info': 'Personal Information',
+            'user-name': 'Name',
+            'user-email': 'Email',
+            'user-phone': 'Phone',
+            'user-edit': 'Edit Profile',
+            
+            // Application Progress
+            'application-progress': 'Application Progress',
+            'application-status': 'Current Status',
+            'application-next': 'Next Step',
+            'application-history': 'Application History',
+            
+            // Document Management
+            'document-management': 'Document Management',
+            'document-upload': 'Upload Documents',
+            'document-list': 'Document List',
+            'document-shared': 'Shared Documents',
+            
+            // Message Center
+            'message-center': 'Message Center',
+            'message-unread': 'Unread Messages',
+            'message-all': 'All Messages',
+            'message-send': 'Send Message',
+            
+            // Consultation
+            'consultation': 'Consultation',
+            'consultation-new': 'New Appointment',
+            'consultation-history': 'Appointment History',
+            'consultation-upcoming': 'Upcoming Appointments',
+            
+            // Button Text
+            'btn-save': 'Save',
+            'btn-cancel': 'Cancel',
+            'btn-submit': 'Submit',
+            'btn-upload': 'Upload',
+            'btn-download': 'Download',
+            'btn-delete': 'Delete',
+            
+            // Footer
+            'footer-text': '© 2024 Study Abroad Platform. All rights reserved.',
+            
+            // Registration Page Translations
+            'register-title': 'User Registration',
+            'register-username': 'Username',
+            'register-username-placeholder': 'Enter your username',
+            'register-email': 'Email',
+            'register-email-placeholder': 'Enter your email',
+            'register-password': 'Password',
+            'register-password-placeholder': 'Enter your password',
+            'register-confirm-password': 'Confirm Password',
+            'register-confirm-password-placeholder': 'Confirm your password',
+            'register-submit': 'Register',
+            'register-login-link': 'Already have an account? Login',
+            
+            // Registration messages
+            'register-loading': 'Registering...',
+            'register-success': 'Registration successful!',
+            'register-error': 'Registration failed, please try again later',
+            'password-mismatch': 'Passwords do not match'
+        }
+    };
+
+    function changeLanguage(lang) {
+        localStorage.setItem('selectedLanguage', lang);
+        
+        // 更新所有带有 data-translate 属性的元素
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang][key]) {
+                if (element.tagName.toLowerCase() === 'input') {
+                    element.value = translations[lang][key];
+                } else {
+                    element.textContent = translations[lang][key];
+                }
+            }
+        });
+
+        // 更新所有带有 data-translate-placeholder 属性的输入框的 placeholder
+        document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+            const key = element.getAttribute('data-translate-placeholder');
+            if (translations[lang][key]) {
+                element.placeholder = translations[lang][key];
+            }
+        });
+
+        // 更新页面标题
+        document.title = lang === 'zh' ? 
+            'OVERSEAS EDUCATION CONSULTANCY - 用户注册' : 
+            'OVERSEAS EDUCATION CONSULTANCY - User Registration';
+    }
+
+    // 页面加载时初始化语言
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'zh';
+        document.getElementById('language-selector').value = savedLanguage;
+        changeLanguage(savedLanguage);
+    });
+    </script>
+
+    <!-- 添加样式 -->
+    <style>
+    .language-switch {
+        margin-left: 20px;
+    }
+
+    #language-selector {
+        padding: 5px 10px;
+        border: 2px solid #4169E1;
+        border-radius: 20px;
+        background: transparent;
+        color: #4169E1;
+        font-size: 14px;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3s ease;
+    }
+
+    #language-selector:hover {
+        background: #4169E1;
+        color: white;
+    }
+
+    #language-selector option {
+        background: white;
+        color: #4169E1;
+    }
+    </style>
+</body>
+</html> 

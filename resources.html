@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留学资源中心</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .resources-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #333333, #4A4A4A);
+            padding-top: 80px;
+            color: #fff;
+        }
+
+        .resources-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 资讯板块样式 */
+        .news-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* 成功案例样式 */
+        .success-stories {
+            margin-bottom: 60px;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .story-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .story-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* 留学准备指南样式 */
+        .preparation-guide {
+            margin-bottom: 60px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .guide-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .guide-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .guide-item li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .guide-item li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4169E1;
+        }
+
+        /* 在线课程样式 */
+        .online-courses {
+            margin-bottom: 60px;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .course-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #4169E1;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .course-btn:hover {
+            background: #3157c7;
+            transform: translateY(-2px);
+        }
+
+        /* 海外生活指南样式 */
+        .life-guide {
+            margin-bottom: 60px;
+        }
+
+        .guide-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* 互动社区样式 */
+        .community {
+            margin-bottom: 60px;
+        }
+
+        .community-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        /* 职业发展样式 */
+        .career-development {
+            margin-bottom: 60px;
+        }
+
+        .career-resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .resource {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .resources-container {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .news-grid,
+            .stories-grid,
+            .guide-grid,
+            .courses-grid,
+            .guide-content,
+            .community-features,
+            .career-resources {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="./logo/logo.PNG" alt="Logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="resources.html">留学资源</a></li>
+                <li><a href="forum.html">交流论坛</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="resources-page">
+        <div class="resources-container">
+            <!-- 留学资讯 -->
+            <section class="news-section">
+                <h2 class="section-title">留学资讯</h2>
+                <div class="news-grid">
+                    <div class="news-card">
+                        <h3>2024年美国留学政策更新</h3>
+                        <p>- F1签证政策调整：允许更长实习期限</p>
+                        <p>- OPT政策优化：STEM专业可延长至36个月</p>
+                        <p>- 研究生申请：GRE考试要求放宽</p>
+                    </div>
+                    <div class="news-card">
+                        <h3>英国留学费用指南2024</h3>
+                        <p>- 本科学费：£15,000-£30,000/年</p>
+                        <p>- 硕士学费：£16,000-£35,000/年</p>
+                        <p>- 生活费：£12,000-£15,000/年</p>
+                        <p>- 最新奖学金项目介绍</p>
+                    </div>
+                    <div class="news-card">
+                        <h3>2024全球热门专业分析</h3>
+                        <p>1. 人工智能与机器学习</p>
+                        <p>2. 数据科学与分析</p>
+                        <p>3. 可持续发展与环境科学</p>
+                        <p>4. 金融科技（FinTech）</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 成功案例 -->
+            <section class="success-stories">
+                <h2 class="section-title">成功案例</h2>
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <img src="./技师图片/Lisa.PNG" alt="学生照片">
+                        <h3>张同学 - 哈佛大学</h3>
+                        <p>计算机科学专业</p>
+                        <div class="story-details">
+                            GPA: 3.9/4.0<br>
+                            TOEFL: 110<br>
+                            GRE: 335<br>
+                            获得全额奖学金
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <img src="./技师图片/Jack.PNG" alt="学生照片">
+                        <h3>李同学 - 斯坦福大学</h3>
+                        <p>人工智能硕士</p>
+                        <div class="story-details">
+                            GPA: 3.8/4.0<br>
+                            TOEFL: 108<br>
+                            GRE: 332<br>
+                            获Google实习offer
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <img src="./技师图片/Sarah.PNG" alt="学生照片">
+                        <h3>王同学 - 剑桥大学</h3>
+                        <p>金融经济学硕士</p>
+                        <div class="story-details">
+                            GPA: 3.85/4.0<br>
+                            IELTS: 7.5<br>
+                            获英国政府奖学金
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 留学准备指南 -->
+            <section class="preparation-guide">
+                <h2 class="section-title">留学准备指南</h2>
+                <div class="guide-grid">
+                    <div class="guide-item">
+                        <h3>TOEFL备考攻略</h3>
+                        <ul>
+                            <li>听力提升：每日CNN新闻训练</li>
+                            <li>口语技巧：TPO真题练习方法</li>
+                            <li>写作模板：高分作文结构分析</li>
+                            <li>阅读技巧：快速定位关键信息</li>
+                        </ul>
+                    </div>
+                    <div class="guide-item">
+                        <h3>文书写作指导</h3>
+                        <ul>
+                            <li>个人陈述核心要素分析</li>
+                            <li>推荐信选择与准备策略</li>
+                            <li>学习计划书写作技巧</li>
+                            <li>简历制作专业指导</li>
+                        </ul>
+                    </div>
+                    <div class="guide-item">
+                        <h3>签证面试准备</h3>
+                        <ul>
+                            <li>常见问题及答案技巧</li>
+                            <li>材料准备清单</li>
+                            <li>面试着装建议</li>
+                            <li>签证官心理分析</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 在线课程 -->
+            <section class="online-courses">
+                <h2 class="section-title">在线课程</h2>
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <h3>TOEFL冲刺班</h3>
+                        <p>目标分数：100+</p>
+                        <p>课程特点：</p>
+                        <ul>
+                            <li>真题解析</li>
+                            <li>一对一辅导</li>
+                            <li>模考评估</li>
+                        </ul>
+                        <a href="#" class="course-btn">立即报名</a>
+                    </div>
+                    <div class="course-card">
+                        <h3>留学文书写作班</h3>
+                        <p>名校文书写作技巧</p>
+                        <p>课程特点：</p>
+                        <ul>
+                            <li>名校案例分析</li>
+                            <li>个性化指导</li>
+                            <li>免费修改服务</li>
+                        </ul>
+                        <a href="#" class="course-btn">了解更多</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 海外生活指南 -->
+            <section class="life-guide">
+                <h2 class="section-title">海外生活指南</h2>
+                <div class="guide-content">
+                    <div class="guide-item">
+                        <h3>住宿选择指南</h3>
+                        <p>- 校内宿舍：$800-1200/月</p>
+                        <p>- 校外公寓：$1000-1800/月</p>
+                        <p>- 合租选择：$600-900/月</p>
+                        <p>包含各类型住宿优劣分析</p>
+                    </div>
+                    <div class="guide-item">
+                        <h3>生活适应指南</h3>
+                        <p>1. 文化差异应对策略</p>
+                        <p>2. 社交圈子建立方法</p>
+                        <p>3. 学习方式转变建议</p>
+                        <p>4. 心理调适技巧</p>
+                    </div>
+                    <div class="guide-item">
+                        <h3>留学生必备信息</h3>
+                        <p>- 银行开户流程</p>
+                        <p>- 医疗保险选择</p>
+                        <p>- 手机套餐推荐</p>
+                        <p>- 交通出行攻略</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 互动社区 -->
+            <section class="community">
+                <h2 class="section-title">留学社区</h2>
+                <div class="community-features">
+                    <div class="feature">
+                        <h3>留学经验分享</h3>
+                        <p>- 申请季日记分享</p>
+                        <p>- 选校选专业经验</p>
+                        <p>- 面试实战技巧</p>
+                        <p>- 奖学金申请攻略</p>
+                    </div>
+                    <div class="feature">
+                        <h3>专业问答区</h3>
+                        <p>- 名校学长学姐在线答疑</p>
+                        <p>- 专业老师政策解读</p>
+                        <p>- 24小时快速响应</p>
+                    </div>
+                    <div class="feature">
+                        <h3>留学生社群</h3>
+                        <p>- 同校同专业交流群</p>
+                        <p>- 学习资源共享</p>
+                        <p>- 线下活动组织</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 职业发展 -->
+            <section class="career-development">
+                <h2 class="section-title">职业发展</h2>
+                <div class="career-resources">
+                    <div class="resource">
+                        <h3>实习机会</h3>
+                        <p>- 世界500强内推机会</p>
+                        <p>- 实习岗位速递</p>
+                        <p>- 简历投递指导</p>
+                        <p>- 面试经验分享</p>
+                    </div>
+                    <div class="resource">
+                        <h3>就业指导</h3>
+                        <p>- 求职简历优化</p>
+                        <p>- 面试技巧培训</p>
+                        <p>- 职业规划咨询</p>
+                        <p>- 行业发展分析</p>
+                    </div>
+                    <div class="resource">
+                        <h3>校友资源</h3>
+                        <p>- 名校校友交流</p>
+                        <p>- 行业精英分享</p>
+                        <p>- 职业发展经验</p>
+                        <p>- 创业项目对接</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 留学服务平台. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

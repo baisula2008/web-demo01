@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海外留学服务与咨询</title>
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-section">
+                <a href="index.html" class="logo">
+                    <img src="图片1/111.PNG" alt="Logo" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-lang-zh="首页" data-lang-en="Home">首页</a></li>
+                <li><a href="about.html" data-lang-zh="关于我们" data-lang-en="About Us">关于我们</a></li>
+                <li><a href="contact.html" data-lang-zh="联系我们" data-lang-en="Contact Us">联系我们</a></li>
+                <li><a href="user-platform.html" data-lang-zh="用户平台" data-lang-en="User Platform">用户平台</a></li>
+                <li class="language-switch" style="margin-left: 20px;">
+                    <select id="languageSelect" onchange="changeLanguage()" style="padding: 5px 10px; border-radius: 5px; background: #4169E1; color: white; border: none; cursor: pointer;">
+                        <option value="zh">中文</option>
+                        <option value="en">English</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <div class="login-image">
+            <div class="logo-container">
+                <img src="图片1/111.PNG" alt="Logo" class="logo">
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <h2 class="form-title" data-lang-zh="海外留学服务与咨询" data-lang-en="Overseas Study Service and Consultation">海外留学服务与咨询</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name" data-lang-zh="姓名" data-lang-en="Name">姓名</label>
+                    <input type="text" id="name" name="name" data-placeholder-zh="请输入您的姓名" data-placeholder-en="Please enter your name" placeholder="请输入您的姓名" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" data-lang-zh="电话" data-lang-en="Phone">电话</label>
+                    <input type="tel" id="phone" name="phone" data-placeholder-zh="请输入您的联系电话" data-placeholder-en="Please enter your phone number" placeholder="请输入您的联系电话" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date" data-lang-zh="预约日期" data-lang-en="Appointment Date">预约日期</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="time" data-lang-zh="预约时间" data-lang-en="Appointment Time">预约时间</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address" data-lang-zh="地址" data-lang-en="Address">地址</label>
+                    <input type="text" id="address" name="address" data-placeholder-zh="输入地址" data-placeholder-en="Enter address" placeholder="输入地址">
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes" data-lang-zh="咨询内容" data-lang-en="Consultation Content">咨询内容</label>
+                    <textarea id="notes" name="notes" data-placeholder-zh="请输入您想咨询的具体内容" data-placeholder-en="Please enter your specific consultation content" placeholder="请输入您想咨询的具体内容" rows="4"></textarea>
+                </div>
+                
+                <div class="button-group">
+                    <button type="submit" class="submit-btn" data-lang-zh="提交" data-lang-en="Submit">提交</button>
+                    <a href="user-platform.html" class="register-btn" data-lang-zh="注册" data-lang-en="Register">注册</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 在页面加载时检查并应用保存的语言设置
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取保存的语言设置，如果没有则默认为中文
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'zh';
+            
+            // 设置语言选择器的值
+            document.getElementById('languageSelect').value = savedLanguage;
+            
+            // 应用语言设置
+            changeLanguage();
+        });
+
+        function changeLanguage() {
+            const language = document.getElementById('languageSelect').value;
+            
+            // 保存语言选择到 localStorage
+            localStorage.setItem('selectedLanguage', language);
+            
+            // 更新所有带有语言标记的元素
+            const elements = document.querySelectorAll('[data-lang-' + language + ']');
+            elements.forEach(element => {
+                element.textContent = element.getAttribute('data-lang-' + language);
+            });
+
+            // 更新所有输入框的 placeholder
+            const inputs = document.querySelectorAll('input[data-placeholder-' + language + '], textarea[data-placeholder-' + language + ']');
+            inputs.forEach(input => {
+                input.placeholder = input.getAttribute('data-placeholder-' + language);
+            });
+
+            // 更新页面标题
+            document.title = language === 'zh' ? '海外留学服务与咨询' : 'Overseas Study Service and Consultation';
+            
+            // 更新 HTML 语言属性
+            document.documentElement.lang = language;
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            const language = document.getElementById('languageSelect').value;
+            submitBtn.textContent = language === 'zh' ? '提交中...' : 'Submitting...';
+            submitBtn.disabled = true;
+
+            try {
+                const formData = {
+                    name: document.getElementById('name').value,
+                    phone: document.getElementById('phone').value,
+                    date: document.getElementById('date').value,
+                    time: document.getElementById('time').value,
+                    address: document.getElementById('address').value,
+                    notes: document.getElementById('notes').value
+                };
+
+                const response = await fetch('http://localhost:3001/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert(language === 'zh' ? '提交成功！' : 'Submitted successfully!');
+                    document.getElementById('contactForm').reset();
+                } else {
+                    throw new Error(language === 'zh' ? '提交失败' : 'Submission failed');
+                }
+            } catch (error) {
+                alert(language === 'zh' ? '提交失败，请稍后重试' : 'Submission failed, please try again later');
+                console.error('Error:', error);
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html> 
